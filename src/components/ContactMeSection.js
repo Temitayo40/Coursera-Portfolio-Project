@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useFormik, yupToFormErrors } from "formik";
 import {
   Box,
@@ -12,36 +12,31 @@ import {
   Textarea,
   VStack,
 } from "@chakra-ui/react";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 import FullScreenSection from "./FullScreenSection";
 import useSubmit from "../hooks/useSubmit";
-import {useAlertContext} from "../context/alertContext";
+import { useAlertContext } from "../context/alertContext";
 
 const formSchema = Yup.object({
-   firstName: Yup.string()
-     .required('Name is required'),
-  email: Yup.string()
-    .email('Invalid email')
-    .required('Email is required'),
-  type: Yup.string()
-    .required('Type is required'),
-  comment: Yup.string()
-    .required('Comment is required')
- });
+  firstName: Yup.string().required("Name is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  type: Yup.string().required("Type is required"),
+  comment: Yup.string().required("Comment is required"),
+});
 
 const LandingSection = () => {
-  const {isLoading, response, submit} = useSubmit();
+  const { isLoading, response, submit } = useSubmit();
   const { onOpen } = useAlertContext();
 
   const { getFieldProps, errors, touched, handleSubmit, dirty } = useFormik({
     initialValues: {
-      firstName: '',
-      email: '',
-      type: 'hireMe',
-      comment: '',
+      firstName: "",
+      email: "",
+      type: "hireMe",
+      comment: "",
     },
     onSubmit: (values) => {
-      submit('https://example.com', values);
+      submit("https://example.com", values);
     },
     validationSchema: formSchema,
   });
@@ -76,7 +71,7 @@ const LandingSection = () => {
                 <Input
                   id="firstName"
                   name="firstName"
-                  {...getFieldProps('firstName')}
+                  {...getFieldProps("firstName")}
                 />
                 <FormErrorMessage>{errors.firstName}</FormErrorMessage>
               </FormControl>
@@ -86,13 +81,13 @@ const LandingSection = () => {
                   id="email"
                   name="email"
                   type="email"
-                  {...getFieldProps('email')}
+                  {...getFieldProps("email")}
                 />
                 <FormErrorMessage></FormErrorMessage>
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type" {...getFieldProps('type')}>
+                <Select id="type" name="type" {...getFieldProps("type")}>
                   <option value="hireMe">Freelance project proposal</option>
                   <option value="openSource">
                     Open source consultancy session
@@ -106,11 +101,16 @@ const LandingSection = () => {
                   id="comment"
                   name="comment"
                   height={250}
-                  {...getFieldProps('comment')}
+                  {...getFieldProps("comment")}
                 />
                 <FormErrorMessage></FormErrorMessage>
               </FormControl>
-              <Button type="submit" colorScheme="purple" width="full" isLoading={isLoading}>
+              <Button
+                type="submit"
+                colorScheme="purple"
+                width="full"
+                isLoading={isLoading}
+              >
                 Submit
               </Button>
             </VStack>

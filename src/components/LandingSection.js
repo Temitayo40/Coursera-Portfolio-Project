@@ -17,15 +17,15 @@ const LandingSection = () => (
   >
     <VStack spacing={4} marginBottom={10}>
       <Avatar size="2xl" name="Pete" src="https://i.pravatar.cc/150?img=7" />
-      <Heading as='h4' size='md'>
+      <Heading as="h4" size="md">
         {greeting}
       </Heading>
     </VStack>
     <VStack spacing={4}>
-      <Heading as='h2' size='3xl'>
+      <Heading as="h2" size="3xl">
         {bio1}
       </Heading>
-      <Heading as='h2' size='3xl'>
+      <Heading as="h2" size="3xl">
         {bio2}
       </Heading>
     </VStack>

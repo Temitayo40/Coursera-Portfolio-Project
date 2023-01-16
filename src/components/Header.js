@@ -33,14 +33,14 @@ const socials = [
 ];
 
 const Header = () => {
-  const [translateValue, setTranslateValue] = useState('0');
+  const [translateValue, setTranslateValue] = useState("0");
   const handleClick = (anchor) => () => {
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
+        behavior: "smooth",
+        block: "start",
       });
     }
   };
@@ -49,16 +49,16 @@ const Header = () => {
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
     if (prevScrollY.current < currentScrollY && currentScrollY > 100) {
-      setTranslateValue('-200px');
+      setTranslateValue("-200px");
     } else {
-      setTranslateValue('0');
+      setTranslateValue("0");
     }
     prevScrollY.current = currentScrollY;
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -91,10 +91,10 @@ const Header = () => {
           </nav>
           <nav>
             <HStack spacing={8}>
-              <a href="/#projects" onClick={handleClick('projects')}>
+              <a href="/#projects" onClick={handleClick("projects")}>
                 Projects
               </a>
-              <a href="/#contact-me" onClick={handleClick('contactme')}>
+              <a href="/#contact-me" onClick={handleClick("contactme")}>
                 Contact Me
               </a>
             </HStack>
